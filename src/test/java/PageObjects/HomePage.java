@@ -97,7 +97,7 @@ public class HomePage extends PageObject {
     }
 
     public String getWelcomeMessage() {
-        loggedUserLocator.waitUntilVisible();
+        loggedUserLocator.waitUntilPresent();
         return loggedUserLocator.getText();
     }
 

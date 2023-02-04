@@ -23,9 +23,9 @@ public class SignInPage extends PageObject {
     WebElementFacade createButton;
 
     @Managed
-    private WebDriver driver;
+    WebDriver driver;
     @Managed
-    private WebDriverWait wait;
+    WebDriverWait wait;
     public SignInPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

@@ -1,25 +1,25 @@
 package starter;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import steps.Test1Steps;
+import steps.Test2Steps;
 
 @RunWith(SerenityRunner.class)
-public class Test1Starter {
+public class Test2Starter {
     @Managed
     WebDriver driver;
 
     @Steps
-    Test1Steps usuario1;
+    Test2Steps usuario1;
 
     @Test
-    public void Test1() {
+    public void Test2() {
         usuario1.is_on_home_page();
-        usuario1.goes_to_SignIn();
-        usuario1.should_receive_a_confirmation_msg_after_creates_a_new_user("user35787", "strongpw");
+        usuario1.goes_to_LogIn();
+        usuario1.should_see_a_welcome_message_after_log_in("user3578", "strongpw");
     }
 }
