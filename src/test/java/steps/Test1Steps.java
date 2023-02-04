@@ -1,9 +1,10 @@
-package starter;
+package steps;
 
-import Pages.HomePage;
-import Pages.SignInPage;
+import PageObjects.HomePage;
+import PageObjects.SignInPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Step;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,29 +20,39 @@ import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SerenityRunner.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Test1 {
-    private static final String TEST_NAME="bddp11";
-    private static final String TEST_PWD="marrtrrasadfgs";
+//@RunWith(SerenityRunner.class)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class Test1Steps {
+//    private static final String TEST_NAME="";
+//    private static final String TEST_PWD="marrtrrasadfgs";
 
-    @Managed
-    WebDriver driver;
-    WebDriverWait wait;
-    private HomePage homePage;
-    private SignInPage signInPage;
-    @Before
-    public void setUp() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        homePage = new HomePage(driver);
-        signInPage = new SignInPage(driver);
+    HomePage homePage;
+    SignInPage signInPage;
+
+//    @Managed
+//    WebDriver driver;
+//    WebDriverWait wait;
+
+//    @Before
+//    public void setUp() {
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//        homePage = new HomePage(driver);
+//        signInPage = new SignInPage(driver);
+//    }
+
+    @Step("is on the home page")
+    public void is_on_home_page() {
+        homePage.open();
     }
 
-    @Test
-    public void test1_signup() {
-        homePage.navigateTo();
+    @Step("goes to sing in")
+    public void goes_to_SignIn() {
         homePage.clickOnSignIn();
-        String alertText = signInPage.createUser(TEST_NAME, TEST_PWD);
+    }
+
+    @Step("should receive a conformation message after creating a new user")
+    public void should_receive_a_confirmation_msg_after_creates_a_new_user(String name, String pwd) {
+        String alertText = signInPage.createUser(name, pwd);
         assertThat(alertText).isEqualToIgnoringCase("Sign up successful.");
     }
 
@@ -56,6 +67,6 @@ public class Test1 {
         System.out.println("\nReport name : TEST1");
         System.out.println("O.S name    : " + osName + " version " + osVersion);
         System.out.println("Date        : " + formattedDate + "\n");
-        driver.quit();
+//        driver.quit();
     }
 }

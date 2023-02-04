@@ -1,7 +1,7 @@
-package starter;
+package steps;
 
-//import io.cucumber.junit.CucumberSerenityRunner; TODO: USED WITH CUCUMBER
-import Pages.HomePage;
+import PageObjects.CartPage;
+import PageObjects.HomePage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.After;
@@ -17,47 +17,56 @@ import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.*;
 @RunWith(SerenityRunner.class)
-public class Test3 {
+public class Test4 {
 
     @Managed
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
     private HomePage homePage;
+    private static CartPage cartPage;
 
     @Before
     public void setUp() {
         homePage = new HomePage(driver);
+        cartPage = new CartPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     @Test
-    public void test3_navigate_between_different_products() {
+    public void testAddToCart() {
+        // Add Samsung galaxy s7
         homePage.navigateTo();
         homePage.clickOnPhones();
-        assertThat(homePage.hasPhones()).isTrue();
-        assertThat(homePage.hasLaptops()).isFalse();
-        assertThat(homePage.hasMonitors()).isFalse();
+        homePage.clickOnPhoneS7();
+        homePage.addProductToCart();
 
+        // Add Samsung galaxy s6
+        homePage.navigateTo();
+        homePage.clickOnPhones();
+        homePage.clickOnPhoneS6();
+        homePage.addProductToCart();
+
+        // Add Sony vaio i7
+        homePage.navigateTo();
         homePage.clickOnLaptops();
-        assertThat(homePage.hasPhones()).isFalse();
-        assertThat(homePage.hasLaptops()).isTrue();
-        assertThat(homePage.hasMonitors()).isFalse();
+        homePage.clickOnLaptopVaioI7();
+        homePage.addProductToCart();
 
-        homePage.clickOnMonitors();
-        assertThat(homePage.hasPhones()).isFalse();
-        assertThat(homePage.hasLaptops()).isFalse();
-        assertThat(homePage.hasMonitors()).isTrue();
+        cartPage.navigateToWaitForProduct("Samsung galaxy s6");
+        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
     }
 
     @After
-    public void tearDown() {
+    public void tearDown(){
         String osName = System.getProperty("os.name");
         String osVersion = System.getProperty("os.version");
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
         String formattedDate = today.format(formatter);
 
-        System.out.println("\nReport name : TEST3");
+        System.out.println("\nReport name : TEST4");
         System.out.println("O.S name    : " + osName + " version " + osVersion);
         System.out.println("Date        : " + formattedDate + "\n");
         driver.quit();

@@ -1,21 +1,30 @@
-package Pages;
+package PageObjects;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
-import org.openqa.selenium.By;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+
 
 public class SignInPage extends PageObject {
-    private static final By USERNAME_LOCATOR = By.id("sign-username");
-    private static final By PASSWORD_LOCATOR = By.id("sign-password");
-    private static final By CREATE_BUTTON = By.xpath("//button[@onclick=\"register()\"]");
+    @FindBy(id="sign-username")
+    WebElementFacade usernameLocator;
 
+    @FindBy(id="sign-password")
+    WebElementFacade passwordLocator;
+
+    @FindBy(xpath="//button[@onclick=\"register()\"]")
+    WebElementFacade createButton;
+
+    @Managed
     private WebDriver driver;
+    @Managed
     private WebDriverWait wait;
     public SignInPage(WebDriver driver) {
         this.driver = driver;
@@ -23,10 +32,10 @@ public class SignInPage extends PageObject {
     }
 
     public String createUser(String testName, String testPwd) {
-        wait.until(elementToBeClickable(CREATE_BUTTON));
-        driver.findElement(USERNAME_LOCATOR).sendKeys(testName);
-        driver.findElement(PASSWORD_LOCATOR).sendKeys(testPwd);
-        driver.findElement(CREATE_BUTTON).click();
+        createButton.waitUntilClickable();
+        usernameLocator.sendKeys(testName);
+        passwordLocator.sendKeys(testPwd);
+        createButton.click();
         wait.until(alertIsPresent());
         String alertText=driver.switchTo().alert().getText();
         return alertText;

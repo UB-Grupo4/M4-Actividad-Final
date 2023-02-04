@@ -1,7 +1,7 @@
-package starter;
+package steps;
 
-import Pages.CartPage;
-import Pages.HomePage;
+import PageObjects.CartPage;
+import PageObjects.HomePage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.After;
@@ -15,47 +15,29 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static org.assertj.core.api.Assertions.*;
 @RunWith(SerenityRunner.class)
-public class Test4 {
+public class Test6 {
 
     @Managed
-    private WebDriver driver;
-    private WebDriverWait wait;
+    WebDriver driver;
+    WebDriverWait wait;
     private HomePage homePage;
-    private static CartPage cartPage;
-
+    private CartPage cartPage;
     @Before
-    public void setUp() {
+    public void setUp(){
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     @Test
-    public void testAddToCart() {
-        // Add Samsung galaxy s7
-        homePage.navigateTo();
-        homePage.clickOnPhones();
-        homePage.clickOnPhoneS7();
-        homePage.addProductToCart();
-
-        // Add Samsung galaxy s6
-        homePage.navigateTo();
-        homePage.clickOnPhones();
-        homePage.clickOnPhoneS6();
-        homePage.addProductToCart();
-
-        // Add Sony vaio i7
+    public void test6_do_checkout(){
         homePage.navigateTo();
         homePage.clickOnLaptops();
         homePage.clickOnLaptopVaioI7();
         homePage.addProductToCart();
-
-        cartPage.navigateToWaitForProduct("Samsung galaxy s6");
-        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
-        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
+        cartPage.navigateTo();
+        cartPage.buyItemsInCart();
     }
 
     @After
@@ -66,7 +48,7 @@ public class Test4 {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
         String formattedDate = today.format(formatter);
 
-        System.out.println("\nReport name : TEST4");
+        System.out.println("\nReport name : TEST6");
         System.out.println("O.S name    : " + osName + " version " + osVersion);
         System.out.println("Date        : " + formattedDate + "\n");
         driver.quit();
