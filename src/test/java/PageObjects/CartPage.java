@@ -1,6 +1,9 @@
 package PageObjects;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,39 +18,74 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 
 public class CartPage extends PageObject {
 
-    private static final By VIEW_CART_LOCATOR = By.id("cartur");
+    @FindBy(id="cartur")
+    WebElementFacade viewCartLocator;
+
+    @FindBy(xpath="//*[@id='tbodyid']/tr/td[2]")
+    WebElementFacade cartRowsNameLocator;
+
+    @FindBy(xpath="//*[@id=\"tbodyid\"]/tr/td[4]/a")
+    WebElementFacade removeItemLocator;
+
+    @FindBy(xpath="//button[@data-target='#orderModal']")
+    WebElementFacade placeOrderLocator;
+
+    @FindBy(id="name")
+    WebElementFacade userNameLocator;
+
+    @FindBy(id="card")
+    WebElementFacade creditCardLocator;
+
+//    private static final By VIEW_CART_LOCATOR = By.id("cartur");
     private static final By CART_ROWS_NAME_LOCATOR = By.xpath("//*[@id='tbodyid']/tr/td[2]");
     private static final By REMOVE_ITEM_LOCATOR = By.xpath("//*[@id=\"tbodyid\"]/tr/td[4]/a");
-    private static final By PLACE_ORDER_LOCATOR = By.xpath("//button[@data-target='#orderModal']");
-    private static final By USER_NAME_LOCATOR = By.id("name");
-    private static final By CREDIT_CARD_LOCATOR = By.id("card");
+//    private static final By PLACE_ORDER_LOCATOR = By.xpath("//button[@data-target='#orderModal']");
+//    private static final By USER_NAME_LOCATOR = By.id("name");
+//    private static final By CREDIT_CARD_LOCATOR = By.id("card");
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    @Managed
+    WebDriver driver;
+    @Managed
+    WebDriverWait wait;
 
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    }
+//    public CartPage(WebDriver driver) {
+//        this.driver = driver;
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//    }
 
     public void navigateTo() {
-        driver.findElement(VIEW_CART_LOCATOR).click();
+        viewCartLocator.click();
     }
 
+    //ToDo Refactorize(?)
     public void navigateToWaitForProduct(String productName) {
         this.navigateTo();
         By productLocator = By.xpath("//td[contains(text(),'" + productName + "')]");
         WebElement productRow = driver.findElement(productLocator);
-        WebElement removeButton = productRow.findElement(REMOVE_ITEM_LOCATOR);
-        wait.until(elementToBeClickable(removeButton));
+        removeItemLocator.waitUntilClickable();
     }
 
     public List<String> getProductNamesFromCart() {
+
+        // ToDo: After the refactorization the element is not a WebElement is a WebElementFacade and it is not possible to
+        // ToDo: use the same functions the lines below is testing
+
+        //  System.out.println("PRINTTTTTTTTTTTTTTTTTTTTTTTT OLD");
+//        System.out.println(driver.findElements(CART_ROWS_NAME_LOCATOR)
+//                .stream()
+//                .map(WebElement::getText)
+//                .collect(Collectors.toList()));
+//
+//        System.out.println("PRINTTTTTTTTTTTTTTTTTTTTTTTT");
+//        System.out.println(cartRowsNameLocator.getText());
+
         return driver.findElements(CART_ROWS_NAME_LOCATOR)
                 .stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
+
+    //ToDo Refactorize (?)
     public void removeProductFromCart(String productName) {
         By productLocator = By.xpath("//td[contains(text(),'" + productName + "')]");
         WebElement productRow = driver.findElement(productLocator);
@@ -56,9 +94,10 @@ public class CartPage extends PageObject {
         removeButton.click();
         wait.until(stalenessOf(productRow));
     }
+
     public void buyItemsInCart() {
-        driver.findElement(PLACE_ORDER_LOCATOR).click();
-        driver.findElement(USER_NAME_LOCATOR).sendKeys("User1");
-        driver.findElement(CREDIT_CARD_LOCATOR).sendKeys("Card1234");
+        placeOrderLocator.click();
+        userNameLocator.sendKeys("user1");
+        creditCardLocator.sendKeys("Card1234");
     }
 }

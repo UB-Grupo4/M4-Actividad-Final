@@ -37,8 +37,7 @@ public class HomePage extends PageObject {
     WebElementFacade monitorApple24Locator;
     @FindBy(xpath="//a[@href='prod.html?idp_=1']")
     WebElementFacade phoneS6Locator;
-    @FindBy(xpath="//*[@id='tbodyid']/div[2]/div/a[text()='Add to cart']")
-    WebElementFacade addToCartLocator;
+
     @FindBy(xpath="//a[@href='prod.html?idp_=4']")
     WebElementFacade phoneS7Locator;
     @FindBy(xpath="//a[@href='prod.html?idp_=9']")
@@ -116,14 +115,6 @@ public class HomePage extends PageObject {
     public void clickOnLaptopVaioI7(){
         clickOnProduct(laptopVaioI7Locator);
     }
-
-    public void addProductToCart() {
-        addToCartLocator.waitUntilClickable();
-        addToCartLocator.click();
-        wait.until(alertIsPresent());
-        driver.switchTo().alert().accept();
-    }
-
     public boolean hasPhones() {
         return phoneS6LocatorList.size() > 0;
     }
