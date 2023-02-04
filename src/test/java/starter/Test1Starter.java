@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import steps.Test1Steps;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @RunWith(SerenityRunner.class)
 public class Test1Starter {
@@ -14,12 +16,22 @@ public class Test1Starter {
     WebDriver driver;
 
     @Steps
-    Test1Steps usuario1;
+    Test1Steps user1;
 
     @Test
     public void Test1() {
-        usuario1.is_on_home_page();
-        usuario1.goes_to_SignIn();
-        usuario1.should_receive_a_confirmation_msg_after_creates_a_new_user("user35787", "strongpw");
+        String osName = System.getProperty("os.name");
+        String osVersion = System.getProperty("os.version");
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
+        String formattedDate = today.format(formatter);
+
+        System.out.println("\nReport name : TEST1");
+        System.out.println("O.S name    : " + osName + " version " + osVersion);
+        System.out.println("Date        : " + formattedDate + "\n");
+
+        user1.is_on_home_page();
+        user1.goes_to_SignIn();
+        user1.should_receive_a_confirmation_msg_after_creates_a_new_user("userstudent12", "studentuser12");
     }
 }
