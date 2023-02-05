@@ -5,34 +5,15 @@ import PageObjects.HomePage;
 import PageObjects.ProductPage;
 import PageObjects.PurchasePage;
 import net.thucydides.core.annotations.Step;
-import org.junit.After;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@RunWith(SerenityRunner.class)
-//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Test6Steps {
-//    private static final String TEST_NAME="start121zs";
-//    private static final String TEST_PWD="marte45szs";
 
     HomePage homePage;
     CartPage cartPage;
     ProductPage productPage;
     PurchasePage purchasePage;
-
-//    @Managed
-//    WebDriver driver;
-//    WebDriverWait wait;
-//
-//    @Before
-//    public void setUp() {
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-//        homePage = new HomePage(driver);
-//        logInPage = new LogInPage(driver);
-//    }
 
     @Step("is on the home page")
     public void go_to_home_page() {
@@ -54,11 +35,6 @@ public class Test6Steps {
         cartPage.navigateTo();
     }
 
-    @Step("Go to Samsung Galaxy S6")
-    public void go_to_Samsung_Galaxy_S6() {
-        homePage.clickOnPhoneS6();
-    }
-
     @Step("Go to Samsung Galaxy S7")
     public void go_to_Samsung_Galaxy_S7() {
         homePage.clickOnPhoneS7();
@@ -74,11 +50,6 @@ public class Test6Steps {
         productPage.addProductToCart();
     }
 
-    @Step("Remove Samsung S6 from the cart")
-    public void remove_Samsung_Galaxy_S6() {
-        cartPage.removeSamsungS6FromCart();
-    }
-
     @Step("Buy selected products")
     public void buy_selected_products() {
         cartPage.buyItemsInCart();
@@ -87,19 +58,5 @@ public class Test6Steps {
     @Step("Should see purchase confirmation")
     public void should_see_purchase_confirmation() {
         assertThat(purchasePage.getPurchaseConfirmationText()).isEqualToIgnoringCase("Thank you for your purchase!");
-    }
-
-    @After
-    public void close_browser() {
-        String osName = System.getProperty("os.name");
-        String osVersion = System.getProperty("os.version");
-        LocalDate today = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
-        String formattedDate = today.format(formatter);
-
-        System.out.println("\nReport name : TEST2");
-        System.out.println("O.S name    : " + osName + " version " + osVersion);
-        System.out.println("Date        : " + formattedDate + "\n");
-//        driver.quit();
     }
 }

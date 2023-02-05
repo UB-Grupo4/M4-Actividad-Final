@@ -6,12 +6,16 @@ import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import steps.Test3Steps;
 
 @RunWith(SerenityRunner.class)
 public class Test3Starter {
     @Managed
     WebDriver driver;
+
+    @Managed
+    WebDriverWait wait;
 
     @Steps
     Test3Steps user1;

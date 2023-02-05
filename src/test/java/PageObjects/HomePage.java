@@ -1,21 +1,14 @@
 package PageObjects;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-//import org.openqa.selenium.By;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions; // todo remove
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.*; //todo remove
 
 @DefaultUrl("https://www.demoblaze.com/index.html")
 public class HomePage extends PageObject {
@@ -49,23 +42,6 @@ public class HomePage extends PageObject {
     List<WebElementFacade> laptopVaioI5LocatorList;
     @FindBy(xpath="//a[@href='prod.html?idp_=10']")
     List<WebElementFacade> monitorApple24LocatorList;
-
-    @Managed
-    WebDriver driver;
-    @Managed
-    WebDriverWait wait;
-
-
-//    public HomePage(WebDriver driver) {
-//        this.driver = driver;
-//        PageFactory.initElements(driver, this);
-//        //wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-//    }
-
-    public void navigateTo() { //ToDo remove
-        this.driver.get("https://www.demoblaze.com/index.html");
-        this.driver.manage().window().maximize();
-    }
 
     public void clickOnPhones() {
         phonesLocator.click();
