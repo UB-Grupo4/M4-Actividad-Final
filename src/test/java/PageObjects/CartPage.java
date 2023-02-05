@@ -36,9 +36,12 @@ public class CartPage extends PageObject {
     @FindBy(id="card")
     WebElementFacade creditCardLocator;
 
+    @FindBy(xpath="//td[contains(text(),'Samsung galaxy s6')]")
+    WebElementFacade samsungS6Locator;
+
 //    private static final By VIEW_CART_LOCATOR = By.id("cartur");
     private static final By CART_ROWS_NAME_LOCATOR = By.xpath("//*[@id='tbodyid']/tr/td[2]");
-    private static final By REMOVE_ITEM_LOCATOR = By.xpath("//*[@id=\"tbodyid\"]/tr/td[4]/a");
+//    private static final By REMOVE_ITEM_LOCATOR = By.xpath("//*[@id=\"tbodyid\"]/tr/td[4]/a");
 //    private static final By PLACE_ORDER_LOCATOR = By.xpath("//button[@data-target='#orderModal']");
 //    private static final By USER_NAME_LOCATOR = By.id("name");
 //    private static final By CREDIT_CARD_LOCATOR = By.id("card");
@@ -65,6 +68,7 @@ public class CartPage extends PageObject {
         removeItemLocator.waitUntilClickable();
     }
 
+    // ToDo Refactorize (?)
     public List<String> getProductNamesFromCart() {
 
         // ToDo: After the refactorization the element is not a WebElement is a WebElementFacade and it is not possible to
@@ -79,20 +83,26 @@ public class CartPage extends PageObject {
 //        System.out.println("PRINTTTTTTTTTTTTTTTTTTTTTTTT");
 //        System.out.println(cartRowsNameLocator.getText());
 
-        return driver.findElements(CART_ROWS_NAME_LOCATOR)
+        return getDriver().findElements(CART_ROWS_NAME_LOCATOR)
                 .stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
+//
+//    //ToDo Refactorize (?)
+//    public void removeProductFromCart(String productName) {
+//        By productLocator = By.xpath("//td[contains(text(),'" + productName + "')]");
+//        WebElement productRow = driver.findElement(productLocator);
+//        WebElement removeButton = productRow.findElement(REMOVE_ITEM_LOCATOR);
+//        wait.until(elementToBeClickable(removeButton));
+//        removeButton.click();
+//        wait.until(stalenessOf(productRow));
+//    }
 
-    //ToDo Refactorize (?)
-    public void removeProductFromCart(String productName) {
-        By productLocator = By.xpath("//td[contains(text(),'" + productName + "')]");
-        WebElement productRow = driver.findElement(productLocator);
-        WebElement removeButton = productRow.findElement(REMOVE_ITEM_LOCATOR);
-        wait.until(elementToBeClickable(removeButton));
-        removeButton.click();
-        wait.until(stalenessOf(productRow));
+    public void removeSamsungS6FromCart() {
+        removeItemLocator.waitUntilClickable();
+        removeItemLocator.click();
+        samsungS6Locator.waitUntilNotVisible();
     }
 
     public void buyItemsInCart() {

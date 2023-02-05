@@ -30,7 +30,7 @@ public class ProductPage extends PageObject{
     public void addProductToCart() {
         addToCartLocator.waitUntilClickable();
         addToCartLocator.click();
-        this.wait.until(alertIsPresent());
-        this.driver.switchTo().alert().accept();
+        waitFor(alertIsPresent());
+        getDriver().switchTo().alert().accept();
     }
 }
