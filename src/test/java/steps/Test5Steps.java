@@ -77,19 +77,10 @@ public class Test5Steps {
         cartPage.removeSamsungS6FromCart();
     }
 
-    @Step("Should see Samsung Galaxy S6, Samsung Galaxy S7 and Sony Vaio i7")
-    public void should_see_samsung_galaxy_s6_samsung_galaxy_s7_and_sony_vaio_i7() {
-        cartPage.getProductNamesFromCart();
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
-    }
-
     @Step("Should not see Samsung Galaxy S6 in cart")
     public void should_not_see_Samsung_Galaxy_S6_in_cart() {
         assertThat(cartPage.getProductNamesFromCart().size()).isLessThan(1);
     }
-
 
     @After
     public void close_browser() {

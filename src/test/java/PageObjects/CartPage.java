@@ -96,7 +96,7 @@ public class CartPage extends PageObject {
     public void removeSamsungS6FromCart() {
         removeItemLocator.waitUntilClickable();
         removeItemLocator.click();
-        samsungS6Locator.waitUntilNotVisible();
+        removeItemLocator.waitUntilNotVisible();
     }
 
     public void buyItemsInCart() {
