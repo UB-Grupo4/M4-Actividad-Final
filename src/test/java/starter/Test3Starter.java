@@ -17,12 +17,18 @@ public class Test3Starter {
     Test3Steps user1;
 
     @Test
-    public void Test2() {
+    public void Test3() {
         user1.go_to_home_page();
+
+        // see phones tab
         user1.go_to_phones_tab();
         user1.should_see_only_phones();
+
+        // see laptops tab
         user1.go_to_laptops_tab();
         user1.should_see_only_laptops();
+
+        // see monitors tab
         user1.go_to_monitors_tab();
         user1.should_see_only_monitors();
     }

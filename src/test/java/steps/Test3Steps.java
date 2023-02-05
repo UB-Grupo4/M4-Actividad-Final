@@ -53,8 +53,8 @@ public class Test3Steps {
     @Step("should see only phones")
     public void should_see_only_phones() {
         assertThat(homePage.hasPhones()).isTrue();
-        assertThat(homePage.hasLaptops()).isFalse();
         assertThat(homePage.hasMonitors()).isFalse();
+        assertThat(homePage.hasLaptops()).isFalse();
     }
 
     @Step("should see only laptops")
