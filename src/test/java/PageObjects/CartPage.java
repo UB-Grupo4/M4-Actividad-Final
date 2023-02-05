@@ -30,12 +30,6 @@ public class CartPage extends PageObject {
     @FindBy(xpath="//button[@data-target='#orderModal']")
     WebElementFacade placeOrderLocator;
 
-    @FindBy(id="name")
-    WebElementFacade userNameLocator;
-
-    @FindBy(id="card")
-    WebElementFacade creditCardLocator;
-
     @FindBy(xpath="//td[contains(text(),'Samsung galaxy s6')]")
     WebElementFacade samsungS6Locator;
 
@@ -107,7 +101,5 @@ public class CartPage extends PageObject {
 
     public void buyItemsInCart() {
         placeOrderLocator.click();
-        userNameLocator.sendKeys("user1");
-        creditCardLocator.sendKeys("Card1234");
     }
 }
