@@ -74,10 +74,9 @@ public class Test4Steps {
 
     @Step("Should see Samsung Galaxy S6, Samsung Galaxy S7 and Sony Vaio i7")
     public void should_see_samsung_galaxy_s6_samsung_galaxy_s7_and_sony_vaio_i7() {
-        cartPage.getProductNamesFromCart();
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
-//        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Sony vaio i7");  //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s7"); //ToDo add this strings to a map with its selector
+        assertThat(cartPage.getProductNamesFromCart()).contains("Samsung galaxy s6");  //ToDo add this strings to a map with its selector
     }
 
 
