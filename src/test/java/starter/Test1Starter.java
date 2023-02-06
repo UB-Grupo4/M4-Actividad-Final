@@ -32,6 +32,6 @@ public class Test1Starter {
 
         user1.is_on_home_page();
         user1.goes_to_SignIn();
-        user1.should_receive_a_confirmation_msg_after_creates_a_new_user("usersusferasdqrebtudent12", "studentuser12");
+        user1.should_receive_a_confirmation_msg_after_creates_a_new_user("usyint12", "studentuser12");
     }
 }
