@@ -31,20 +31,15 @@ Ejercicio de Automatización sobre una Aplicación Web
   * [4.7 Estructura de ficheros](#47-estructura-de-ficheros)
 - [5. Ejecución de Pruebas](#5-ejecución-de-pruebas)
   * [5.1 Test 1 Sign Up en la Tienda Online](#51-test-1-sign-up-en-la-tienda-online)
-    + [5.1.1 COMO usuario QUIERO ser capaz de darme de alta](#511-como-usuario-quiero-ser-capaz-de-darme-de-alta)
   * [5.2 Test 2 Iniciar sesión](#52-test-2-iniciar-sesión)
-    + [5.2.1 COMO usuario QUIERO ser capaz de iniciar sesión en la Tienda Online](#521-como-usuario-quiero-ser-capaz-de-iniciar-sesión-en-la-tienda-online)
   * [5.3 Test 3 Navegar en Teléfonos ordenadores y pantallas](#53-test-3-navegar-en-teléfonos-ordenadores-y-pantallas)
-    + [5.3.1 COMO usuario QUIERO ser capaz de navegar por diferentes productos](#531-como-usuario-quiero-ser-capaz-de-navegar-por-diferentes-productos)
   * [5.4 Test 4 Añadir al carrito](#54-test-4-añadir-al-carrito)
-    + [5.4.1 COMO usuario QUIERO añadir un s7 un s6 y un vaio i7](#541-como-usuario-quiero-añadir-un-s7-un-s6-y-un-vaio-i7)
   * [5.5 Test 5 Eliminar del carrito](#55-test-5-eliminar-del-carrito)
-    + [5.5.1 COMO usuario QUIERO eliminar el Samsung galaxy s6](#551-como-usuario-quiero-eliminar-el-samsung-galaxy-s6)
   * [5.6 Test 6 Pedido de artículos](#56-test-6-pedido-de-artículos)
-    + [5.6.1 COMO usuario QUIERO realizar el pedido de artículos seleccionados](#561-como-usuario-quiero-realizar-el-pedido-de-artículos-seleccionados)
 - [6. Resultado Final](#6-resultado-final)
-  * [6.1 Instalación de herramientas](#31-instalación-de-herramientas)
-    + [6.1.1 Java SE Development Kit](#311-java-se-development-kit)
+  * [6.1 Reportes](#61-reportes)
+    + [6.1.1 Serenity BDD](#611-serenity-bdd)
+    + [6.1.2 Videos del resultado del test por aplicación y terminal](#612-videos-del-resultado-del-test-por-aplicación-y-terminal)
 - [7. Realizado Con](#7-realizado-con)
 - [8. Autores](#8-autores)
 - [9. Licencia](#9-licencia)
@@ -431,23 +426,11 @@ Then -  Luego se crea una nueva cuenta y el usuario puede iniciar sesión
 
 [Volver al menú](#tabla-de-contenidos)
 
-##### 5.1.1 COMO usuario QUIERO ser capaz de darme de alta
-
-![test1](https://user-images.githubusercontent.com/123221049/214040957-05b9b38f-ce99-4ac6-b7a0-ebeb47884e27.PNG)
-
-[Volver al menú](#tabla-de-contenidos)
-
 #### 5.2 Test 2 Iniciar sesión
 Escenario: Usuario inicia sesión  
 Given - Dado que el usuario navega a la página de inicio de sesión  
 When -  Cuando el usuario ingresa su nombre de usuario y contraseña Y hace clic en el botón "inicio de sesión"  
 Then -  Luego el usuario inicia sesión y puede proseguir con su orden
-
-[Volver al menú](#tabla-de-contenidos)
-
-##### 5.2.1 COMO usuario QUIERO ser capaz de iniciar sesión en la Tienda Online
-
-![test1](https://user-images.githubusercontent.com/123221049/214043666-31386829-e55a-4546-8b11-0a5a6b3c2c52.PNG)
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -459,21 +442,11 @@ Then - Luego el usuario puede seleccionar ya sea "S6", "Vaio I5", "Apple 24"
 
 [Volver al menú](#tabla-de-contenidos)
 
-##### 5.3.1 COMO usuario QUIERO ser capaz de navegar por diferentes productos
-![test3](https://user-images.githubusercontent.com/123221049/214046431-1f28e9f7-26c1-44ce-9613-bdb9aaee0917.PNG)
-
-[Volver al menú](#tabla-de-contenidos)
-
 #### 5.4 Test 4 Añadir al carrito
 Escenario: Usuario puede añadir al carrito  
 Given - Dado que el usuario puede seleccionar diferentes productos  
 When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
 Then - Luego el usuario lo puede añadir al carrito
-
-[Volver al menú](#tabla-de-contenidos)
-
-##### 5.4.1 COMO usuario QUIERO añadir un s7 un s6 y un vaio i7
-![test4](https://user-images.githubusercontent.com/123221049/214046734-6c88fcd8-8c36-443d-8cd7-c1d260ecabdb.PNG)
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -485,11 +458,6 @@ Then - Luego el usuario lo puede eliminar del carrito
 
 [Volver al menú](#tabla-de-contenidos)
 
-##### 5.5.1 COMO usuario QUIERO eliminar el Samsung galaxy s6
-![test5](https://user-images.githubusercontent.com/123221049/214047011-a64d2c97-d5fd-4fd0-ab8e-e3728d21a074.PNG)
-
-[Volver al menú](#tabla-de-contenidos)
-
 #### 5.6 Test 6 Pedido de artículos
 Escenario: Usuario puede hacer pedidos  
 Given - Dado que el usuario puede seleccionar diferentes productos  
@@ -498,15 +466,21 @@ Then - Luego el usuario procede a hacer el pedido
 
 [Volver al menú](#tabla-de-contenidos)
 
-##### 5.6.1 COMO usuario QUIERO realizar el pedido de artículos seleccionados
-![test6](https://user-images.githubusercontent.com/123221049/214047300-defb6b20-0b4c-4af8-8525-fd5cef00d074.PNG)
+## **6. Resultado Final**
+
+Los resultados del test fueron satisfactorios
 
 [Volver al menú](#tabla-de-contenidos)
 
+#### 6.1 Reportes
 
-## **6. Resultado Final**
+Los reportes se hicieron tanto de la aplicación así como desde la terminal pudiendo generar el reporte web  
 
-Los resultados del test fueron satisfactorios, se hicieron con: Serenity BDD version 3.5.1
+[Volver al menú](#tabla-de-contenidos)
+
+##### 6.1.1 Serenity BDD  
+
+**Prueba:**  
 
 ![serenity_report_web1](https://user-images.githubusercontent.com/122720038/216946711-22078fae-9934-4803-ac92-41006fe6a9ed.png)
 
@@ -514,6 +488,21 @@ Los resultados del test fueron satisfactorios, se hicieron con: Serenity BDD ver
 
 ![serenity_report_web3](https://user-images.githubusercontent.com/122720038/216946960-ed156f5a-9e29-4f9e-9535-2d023c3affee.png)
 
+[Volver al menú](#tabla-de-contenidos)
+
+##### 6.1.2 Videos del resultado del test por aplicación y terminal
+
+**Prueba:**  
+
+<a href="https://youtu.be/Ll4WEntEZmU" target="_blank"> 
+<img src="http://img.youtube.com/vi/Ll4WEntEZmU/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
+</a>
+
+<a href="https://youtu.be/gy_hHgz44-Q" target="_blank">
+<img src="http://img.youtube.com/vi/gy_hHgz44-Q/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
+</a>
+
+[Volver al menú](#tabla-de-contenidos)
 
 ## **7. Realizado Con**
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
