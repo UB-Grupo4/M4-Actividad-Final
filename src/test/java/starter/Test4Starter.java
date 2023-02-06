@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steps.Test4Steps;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @RunWith(SerenityRunner.class)
 public class Test4Starter {
@@ -22,6 +24,16 @@ public class Test4Starter {
 
     @Test
     public void Test4() {
+         String osName = System.getProperty("os.name");
+        String osVersion = System.getProperty("os.version");
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd',' MMMM yyyy");
+        String formattedDate = today.format(formatter);
+
+        System.out.println("\nReport name : TEST4");
+        System.out.println("O.S name    : " + osName + " version " + osVersion);
+        System.out.println("Date        : " + formattedDate + "\n");
+        
         // add Samsung Galaxy S6
         user1.go_to_home_page();
         user1.go_to_phones_tab();
