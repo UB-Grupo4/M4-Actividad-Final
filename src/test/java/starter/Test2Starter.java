@@ -33,6 +33,6 @@ public class Test2Starter {
 
         user1.is_on_home_page();
         user1.goes_to_LogIn();
-        user1.should_see_a_welcome_message_after_log_in("usersusferasdqrebtudent12", "studentuser12");
+        user1.should_see_a_welcome_message_after_log_in("usssyint12", "studentuser12");
     }
 }
