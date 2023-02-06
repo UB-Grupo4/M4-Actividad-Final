@@ -39,7 +39,9 @@ Ejercicio de Automatización sobre una Aplicación Web
 - [6. Resultado Final](#6-resultado-final)
   * [6.1 Reportes](#61-reportes)
     + [6.1.1 Serenity BDD](#611-serenity-bdd)
-    + [6.1.2 Videos del resultado del test por aplicación y terminal](#612-videos-del-resultado-del-test-por-aplicación-y-terminal)
+    + [6.1.2 Windows resultado](#612-windows-resultado)
+    + [6.1.3 Linux resultado](#613-linux-resultado)
+    + [6.1.4 MacOS resultado](#614-macos-resultado)
 - [7. Realizado Con](#7-realizado-con)
 - [8. Autores](#8-autores)
 - [9. Licencia](#9-licencia)
@@ -336,7 +338,9 @@ A continuación se detalla la creacion del directorio drivers y sus ficheros:
 
 ##### 4.6.1 drivers
 
-El directorio drivers contiene otros directorios divididos por sistema operativo y en el caso de MacOS por CPU. 
+El directorio drivers contiene otros directorios divididos por sistema operativo y en el caso de MacOS por CPU.  
+
+**A)** Ir al siguiente enlace: <a href="https://chromedriver.chromium.org/downloads" onclick="window.open(this.href, '_blank'); return false;">chromedriver</a>
 
 **drivers directorios por O.S. y sus ficheros:**  
 
@@ -419,50 +423,60 @@ Se realizaron un total de 6 pruebas
 
 #### 5.1 Test 1 Sign Up en la Tienda Online
 
-Escenario: Registrar un nuevo usuario  
-Given - Dado que el usuario navega a la página de registro  
-When -  Cuando el usuario ingresa su nombre de usuario y contraseña Y hace clic en el botón "Registrarse"  
-Then -  Luego se crea una nueva cuenta y el usuario puede iniciar sesión
+**Registrar un nuevo usuario:**
+
+El fichero realiza una prueba de funcionalidad web con JUnit en formato BDD (Behavior Driven Development)  
+El test llama a los métodos en la clase Test1Steps para verificar que el usuario está en la página de inicio  
+creando un nuevo usuario, esperando recibir un mensaje de confirmación.
 
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.2 Test 2 Iniciar sesión
-Escenario: Usuario inicia sesión  
-Given - Dado que el usuario navega a la página de inicio de sesión  
-When -  Cuando el usuario ingresa su nombre de usuario y contraseña Y hace clic en el botón "inicio de sesión"  
-Then -  Luego el usuario inicia sesión y puede proseguir con su orden
+
+**Usuario inicia sesión :**  
+
+El fichero de prueba llama a los métodos en la clase Test2Steps para realizar los pasos de prueba.  
+Los métodos verifican que el usuario está en la página de inicio e inicia sesión con un nombre  
+de usuario y una contraseña específico.  
+CUaando el proceso es exitoso se debe de ver un mensaje de bienvenida.
 
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.3 Test 3 Navegar en Teléfonos ordenadores y pantallas
-Escenario: Usuario puede navegar  
-Given - Dado que el usuario puede navegar por diferentes productos  
-When - Cuando el usuario da clic en alguno de los botones "Phone", "Laptop", "Monitor"  
-Then - Luego el usuario puede seleccionar ya sea "S6", "Vaio I5", "Apple 24"
+
+**Usuario puede navegar :**  
+
+El fichero es ejecutado por JUnit runner para probar la funcionalidad de la aplicación web, utilizando el  
+marco Serenity BDD para administrar las instancias de WebDriver y WebDriverWait de la prueba.
 
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.4 Test 4 Añadir al carrito
-Escenario: Usuario puede añadir al carrito  
-Given - Dado que el usuario puede seleccionar diferentes productos  
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
-Then - Luego el usuario lo puede añadir al carrito
+
+**Usuario puede añadir al carrito :**  
+
+El fichero incluye todo lo necesario para el marco Serenity y Selenium WebDriver  
+En esta prueba se prueba la funcionalidad de agregar productos al carrito y verificar que aparezcan  
+finalmente en el carrito decompras.
 
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.5 Test 5 Eliminar del carrito
-Escenario: Usuario puede eliminar del carrito  
-Given - Dado que el usuario puede seleccionar diferentes productos  
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
-Then - Luego el usuario lo puede eliminar del carrito 
+
+**Usuario puede eliminar del carrito :** 
+
+EL fichero es una prueba JUnit con una clase que usa el ejecutor de pruebas para Serenity BDD.  
+La clase usa la anotación @Managed para administrar una instancia WebDriver y otra WebDriverWait,  
+para automatizar el uso del navegadores web interactuando cada paso del escenario de prueba.
 
 [Volver al menú](#tabla-de-contenidos)
 
 #### 5.6 Test 6 Pedido de artículos
-Escenario: Usuario puede hacer pedidos  
-Given - Dado que el usuario puede seleccionar diferentes productos  
-When - Cuando el usuario selecciona un producto "S6", "Vaio I5", "Apple 24"  
-Then - Luego el usuario procede a hacer el pedido 
+
+**Usuario puede hacer pedidos :**
+
+El fichero es una clase de Java, es un script de prueba BDD (Behavior Driven Development).  
+Usa el marco Serenity para pruebas automatizadas
 
 [Volver al menú](#tabla-de-contenidos)
 
@@ -490,17 +504,54 @@ Los reportes se hicieron tanto de la aplicación así como desde la terminal pud
 
 [Volver al menú](#tabla-de-contenidos)
 
-##### 6.1.2 Videos del resultado del test por aplicación y terminal
+##### 6.1.2 Windows resultado 
 
-**Prueba:**  
+**Prueba del test por aplicación y terminal:**  
+
+**A)** Ir al siguiente enlace: <a href="https://youtu.be/Ll4WEntEZmU" onclick="window.open(this.href, '_blank'); return false;">IntelliJ IDEA Video</a>
 
 <a href="https://youtu.be/Ll4WEntEZmU" target="_blank"> 
 <img src="http://img.youtube.com/vi/Ll4WEntEZmU/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
-</a>
+</a>  
+
+
+**B)** Ir al siguiente enlace: <a href="https://youtu.be/gy_hHgz44-Q" onclick="window.open(this.href, '_blank'); return false;">Terminal Video</a>
 
 <a href="https://youtu.be/gy_hHgz44-Q" target="_blank">
 <img src="http://img.youtube.com/vi/gy_hHgz44-Q/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
 </a>
+
+[Volver al menú](#tabla-de-contenidos)
+
+##### 6.1.3 Linux resultado
+
+**Prueba:**  
+
+<p align="left">
+    <img width="650" alt="linux-resultado1" src="https://user-images.githubusercontent.com/123221049/216976666-b9fdbfa6-eb4b-442b-bfbf-284b5252dc5c.jpg">
+</p>
+<p align="left">
+    <img width="650" alt="linux-resultado2" src="https://user-images.githubusercontent.com/123221049/216977322-de47e10f-9038-4878-9eeb-277fc9701332.jpg">
+</p>
+
+[Volver al menú](#tabla-de-contenidos)
+
+##### 6.1.4 MacOS resultado
+
+**Prueba:**  
+
+<p align="left">
+    <img width="650" alt="mac1-git-clone" src="https://user-images.githubusercontent.com/123221049/216977811-b41e0456-4d14-4e16-8445-d2e0880b4e10.png">
+</p>
+
+<p align="left">
+    <img width="650" alt="mac2-m4" src="https://user-images.githubusercontent.com/123221049/216978146-05f419c5-140f-4105-8e34-44c8fb4b3d11.png">
+</p>
+
+
+<p align="left">
+    <img width="650" alt="mac2-m4-2" src="https://user-images.githubusercontent.com/123221049/216978488-8459fa37-2647-434c-b7c4-4224cfe602c2.png">
+</p>
 
 [Volver al menú](#tabla-de-contenidos)
 
